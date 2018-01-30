@@ -1,0 +1,15 @@
+c:\users\administrador.elena\documents\visual studio 2015\EnglishApp\EnglishApp\bin\Debug\EnglishApp.exe.config
+c:\users\administrador.elena\documents\visual studio 2015\EnglishApp\EnglishApp\bin\Debug\EnglishApp.exe
+c:\users\administrador.elena\documents\visual studio 2015\EnglishApp\EnglishApp\bin\Debug\EnglishApp.pdb
+c:\users\administrador.elena\documents\visual studio 2015\EnglishApp\EnglishApp\obj\Debug\EnglishApp.csprojResolveAssemblyReference.cache
+c:\users\administrador.elena\documents\visual studio 2015\EnglishApp\EnglishApp\obj\Debug\EnglishApp.EnApp.resources
+c:\users\administrador.elena\documents\visual studio 2015\EnglishApp\EnglishApp\obj\Debug\EnglishApp.Properties.Resources.resources
+c:\users\administrador.elena\documents\visual studio 2015\EnglishApp\EnglishApp\obj\Debug\EnglishApp.csproj.GenerateResource.Cache
+c:\users\administrador.elena\documents\visual studio 2015\EnglishApp\EnglishApp\obj\Debug\EnglishApp.exe
+c:\users\administrador.elena\documents\visual studio 2015\EnglishApp\EnglishApp\obj\Debug\EnglishApp.pdb
+c:\users\administrador.elena\documents\visual studio 2015\EnglishApp\EnglishApp\obj\Debug\EnglishApp.verbsWindow.resources
+c:\users\administrador.elena\documents\visual studio 2015\EnglishApp\EnglishApp\bin\Debug\MySql.Data.dll
+c:\users\administrador.elena\documents\visual studio 2015\EnglishApp\EnglishApp\obj\Debug\EnglishApp.ConfigurationsVerbs.resources
+C:\Users\maste\Desktop\EnglishApp\EnglishApp\bin\Debug\EnglishApp.exe.config
+C:\Users\maste\Desktop\EnglishApp\EnglishApp\obj\Debug\EnglishApp.exe
+C:\Users\maste\Desktop\EnglishApp\EnglishApp\obj\Debug\EnglishApp.pdb
