@@ -40,21 +40,17 @@ namespace EnglishApp
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            string inInfiniteve = inputInfinitive.Text;
-            string past = inputPast.Text;
-            string participle = inputParticiple.Text;
-            string spanish = inputSpanish.Text;
-            string sentencePresent = inputPresentTense.Text;
-            string sentencePast = inputPastTense.Text;
-            string senteceParticipe = inputParticipleTense.Text;
-            if (inInfiniteve!="" && past != "" && participle!= "" && spanish
-                !="" && sentencePresent !="" && sentencePast !="" && senteceParticipe !="")
-            {
-                Alert.Text = "";
-            }else
-            {
-                Alert.Text = "Parece que no completo todos los campos";
-            }
+
+        }
+
+        private void inputSearchVerb_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TitleConfigurations_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

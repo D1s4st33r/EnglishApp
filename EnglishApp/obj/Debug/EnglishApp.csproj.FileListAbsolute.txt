@@ -13,3 +13,11 @@ c:\users\administrador.elena\documents\visual studio 2015\EnglishApp\EnglishApp\
 C:\Users\maste\Desktop\EnglishApp\EnglishApp\bin\Debug\EnglishApp.exe.config
 C:\Users\maste\Desktop\EnglishApp\EnglishApp\obj\Debug\EnglishApp.exe
 C:\Users\maste\Desktop\EnglishApp\EnglishApp\obj\Debug\EnglishApp.pdb
+C:\Users\maste\Desktop\EnglishApp\EnglishApp\bin\Debug\EnglishApp.exe
+C:\Users\maste\Desktop\EnglishApp\EnglishApp\bin\Debug\EnglishApp.pdb
+C:\Users\maste\Desktop\EnglishApp\EnglishApp\obj\Debug\EnglishApp.csprojResolveAssemblyReference.cache
+C:\Users\maste\Desktop\EnglishApp\EnglishApp\obj\Debug\EnglishApp.ConfigurationsVerbs.resources
+C:\Users\maste\Desktop\EnglishApp\EnglishApp\obj\Debug\EnglishApp.EnApp.resources
+C:\Users\maste\Desktop\EnglishApp\EnglishApp\obj\Debug\EnglishApp.Properties.Resources.resources
+C:\Users\maste\Desktop\EnglishApp\EnglishApp\obj\Debug\EnglishApp.verbsWindow.resources
+C:\Users\maste\Desktop\EnglishApp\EnglishApp\obj\Debug\EnglishApp.csproj.GenerateResource.Cache
