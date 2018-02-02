@@ -13,7 +13,6 @@ namespace EnglishApp
     class querysVerbs
     {
         //Insert Verb
-        string sql = "INSERT INTO sentences(idverb, presenttense, pasttense, perfecttense) VALUES (@Infinitivo,@)";
 
 
         //METODO PARA INSERTAR NUEVOS VERBOS
@@ -25,7 +24,7 @@ namespace EnglishApp
             try
             {
                 comand.ExecuteNonQuery();
-                MessageBox.Show("The verb has been registered!");
+                
             }
             catch (Exception e)
             {
@@ -44,6 +43,7 @@ namespace EnglishApp
             try
             {
                 comand.ExecuteNonQuery();
+                MessageBox.Show("THE VERB AND EXAMPLES HAVE BEEN REGISTERED");
             }
             catch (Exception e)
             {
@@ -54,7 +54,7 @@ namespace EnglishApp
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        //METODO PARA BUSCAR VERBOS EN FORMA BASE
+        //METODO PARA BUSCAR TODOS LOS VERBOS
         public static DataTable Verbs()
         {
             MySqlConnection conexion = new MySqlConnection();
@@ -73,7 +73,7 @@ namespace EnglishApp
         {
             MySqlConnection conexion = new MySqlConnection();
             conexion = ConexionBD.conexionBD();
-            string query = string.Format("SELECT * FROM verbs WHERE infinitive LIKE ('%" + dato + "');");
+            string query = string.Format("SELECT * FROM verbs WHERE infinitive LIKE ('%" + dato + "%');");
             MySqlDataAdapter da = new MySqlDataAdapter(query, conexion);
             conexion.Close();
             DataTable dt = new DataTable();
@@ -87,7 +87,7 @@ namespace EnglishApp
         {
             MySqlConnection conexion = new MySqlConnection();
             conexion = ConexionBD.conexionBD();
-            string query = string.Format("SELECT * FROM verbs WHERE ID = '{0}';",dato);
+            string query = string.Format("SELECT * FROM examples WHERE ID = '{0}';",dato);
             MySqlDataAdapter da = new MySqlDataAdapter(query, conexion);
             conexion.Close();
             DataTable dt = new DataTable();
@@ -99,15 +99,15 @@ namespace EnglishApp
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         //ACTUALIZAR VERBOS
-        public static void updateVerbs(string inifinitive, string past, string participle, string spanish, string pronunciation, string type)
+        public static void updateVerbs(string infinitive, string past, string participle, string spanish, string pronunciation, string type,int id)
         {
 
-            string query = string.Format("UPDATE verbs SET infinitive = '{0}',past = '{1}',pastParticiple = '{2}',spanish = '{3}',pronunciation = '{4}',type = '{5}';", inifinitive, past, participle, spanish, pronunciation, type);
+            string query = string.Format("UPDATE verbs SET infinitive = '{0}',past = '{1}',pastParticiple = '{2}',spanish = '{3}',pronunciation = '{4}',type = '{5}' WHERE ID='{6}';", infinitive, past, participle, spanish, pronunciation, type,id);
             MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexionBD());
             try
             {
                 comando.ExecuteNonQuery();
-                MessageBox.Show("DUEÑO ACTUALIZADO");
+                
             }
             catch (Exception exp)
             {
@@ -117,19 +117,52 @@ namespace EnglishApp
 
 
         //ACTUALIZAR EJEMPLOS
-        public static void updateExamples(string present, string past, string participle, string type)
+        public static void updateExamples(string present, string past, string participle, string type, int id)
         {
 
-            string query = string.Format("UPDATE examples SET simplePresent = '{0}',simplePast = '{1}',pastParticiple = '{2}',Type = '{3}';", present, past, participle, type);
+            string query = string.Format("UPDATE examples SET simplePresent = '{0}',simplePast = '{1}',pastParticiple = '{2}',Type = '{3}' WHERE ID='{4}';", present, past, participle, type,id);
             MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexionBD());
             try
             {
                 comando.ExecuteNonQuery();
-                MessageBox.Show("DUEÑO ACTUALIZADO");
+                MessageBox.Show("THE VERB AND EXAMPLES HAVE BEEN UPDATE");
             }
             catch (Exception exp)
             {
                 MessageBox.Show(exp.ToString());
+            }
+        }
+
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+        public static void deleteVerbs(int id)
+        {
+            string query = string.Format("DELETE FROM verbs WHERE ID='{0}'",id);
+            MySqlCommand comand = new MySqlCommand(query, ConexionBD.conexionBD());
+            try
+            {
+                comand.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        public static void deleteExamples(int id)
+        {
+            string query = string.Format("DELETE FROM examples WHERE ID='{0}'", id);
+            MySqlCommand comand = new MySqlCommand(query, ConexionBD.conexionBD());
+            try
+            {
+                comand.ExecuteNonQuery();
+                MessageBox.Show("THE VERB AND EXAMPLES HAVE BEEN ELIMINATED");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
             }
         }
 
