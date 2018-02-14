@@ -16,9 +16,9 @@ namespace EnglishApp
 
 
         //METODO PARA INSERTAR NUEVOS VERBOS
-        public static void insertVerbs(string infinitive, string past, string participle, string spanish, string pronunciation, string type)
+        public static void insertVerbs(string infinitive, string past, string participle, string spanish, string pronunciation, string type,string gerund)
         {
-            string query = string.Format("INSERT INTO verbs(infinitive,past,pastParticiple,spanish,pronunciation,type) values ('{0}','{1}','{2}','{3}','{4}','{5}');", infinitive, past, participle, spanish, pronunciation, type);
+            string query = string.Format("INSERT INTO verbs(infinitive,past,pronunciation,pastParticiple,gerund,spanish,type) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}');", infinitive, past, pronunciation, participle, gerund, spanish, type);
 
             MySqlCommand comand = new MySqlCommand(query, ConexionBD.conexionBD());
             try
@@ -43,7 +43,26 @@ namespace EnglishApp
             try
             {
                 comand.ExecuteNonQuery();
-                MessageBox.Show("THE VERB AND EXAMPLES HAVE BEEN REGISTERED");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+
+        }
+
+
+        //METODO PARA INSERTAR NUEVOS LA FOTO DE EL VERBO
+        public static void insertPicture(string path)
+        {
+            string query = string.Format("INSERT INTO pictureVerbs (path) values (@ruta);");
+            
+            MySqlCommand comand = new MySqlCommand(query, ConexionBD.conexionBD());
+            comand.Parameters.AddWithValue("@ruta", path);
+            try
+            {
+                comand.ExecuteNonQuery();
+                MessageBox.Show("THE VERB HASE BEEN REGISTERED SUCCESSFULLY");
             }
             catch (Exception e)
             {
@@ -96,13 +115,38 @@ namespace EnglishApp
         }
 
 
+        //METODO PARA BUSCAR LA IMAGEN DEL VERBO
+        public static DataTable searchPicture(string dato)
+        {
+            MySqlConnection conexion = new MySqlConnection();
+            conexion = ConexionBD.conexionBD();
+            string query = string.Format("SELECT path FROM pictureVerbs WHERE ID = '{0}';", dato);
+            MySqlDataAdapter da = new MySqlDataAdapter(query, conexion);
+            conexion.Close();
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
+
+        //METODO PARA BUSQUEDA INDIVIDUAL DE DATO
+        public static int searchData(string dato)
+        {
+            string query = string.Format("SELECT count(infinitive) from verbs WHERE infinitive ='{0}';", dato);
+            MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexionBD());
+            int respuesta = 0;
+            respuesta= (Convert.ToInt32(comando.ExecuteScalar()));
+            return respuesta;
+        }
+
+
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         //ACTUALIZAR VERBOS
-        public static void updateVerbs(string infinitive, string past, string participle, string spanish, string pronunciation, string type,int id)
+        public static void updateVerbs(string infinitive, string past, string participle, string spanish, string pronunciation, string type,int id, string gerund)
         {
 
-            string query = string.Format("UPDATE verbs SET infinitive = '{0}',past = '{1}',pastParticiple = '{2}',spanish = '{3}',pronunciation = '{4}',type = '{5}' WHERE ID='{6}';", infinitive, past, participle, spanish, pronunciation, type,id);
+            string query = string.Format("UPDATE verbs SET infinitive = '{0}',past = '{1}',pastParticiple = '{2}',spanish = '{3}',gerund='{7}',pronunciation = '{4}',type = '{5}' WHERE ID='{6}';", infinitive, past, participle, spanish, pronunciation, type,id,gerund);
             MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexionBD());
             try
             {
@@ -121,6 +165,24 @@ namespace EnglishApp
         {
 
             string query = string.Format("UPDATE examples SET simplePresent = '{0}',simplePast = '{1}',pastParticiple = '{2}',Type = '{3}' WHERE ID='{4}';", present, past, participle, type,id);
+            MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexionBD());
+            try
+            {
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show(exp.ToString());
+            }
+        }
+
+
+        //ACTUALIZAR FOTO
+        public static void updatePicture(string path, int id)
+        {
+
+            string query = string.Format("UPDATE pictureVerbs SET path = '{0}' WHERE ID='{1}';",path,id);
+            query = query.Replace(@"\", "\\");
             MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexionBD());
             try
             {
@@ -154,6 +216,22 @@ namespace EnglishApp
         public static void deleteExamples(int id)
         {
             string query = string.Format("DELETE FROM examples WHERE ID='{0}'", id);
+            MySqlCommand comand = new MySqlCommand(query, ConexionBD.conexionBD());
+            try
+            {
+                comand.ExecuteNonQuery();
+                
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+
+        public static void deletePicture(int id)
+        {
+            string query = string.Format("DELETE FROM pictureVerbs WHERE ID='{0}'", id);
             MySqlCommand comand = new MySqlCommand(query, ConexionBD.conexionBD());
             try
             {
