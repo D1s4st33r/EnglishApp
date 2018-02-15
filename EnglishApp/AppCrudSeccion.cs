@@ -115,6 +115,7 @@ namespace EnglishApp
                     querysVerbs.insertExample(sentencePresent.ToUpper(), sentencePast.ToUpper(), senteceParticipe.ToUpper(), type);
                     System.IO.File.Copy(pathPrimary, pathFinal, true);
                     querysVerbs.insertPicture(pathFinal);
+                    this.limpiar();
                 } else { Alert.Text = "THIS VERB IS ALREADY IN THE DATA BASE"; }
             }
             else
@@ -245,6 +246,7 @@ namespace EnglishApp
             using (var stream = File.Open(pathPrimary, FileMode.Open))
             {
                 imageVerb.Image = Image.FromStream(stream);
+                stream.Close();
             }
         }
     }

@@ -42,7 +42,7 @@
             // 
             this.BtnVerbs.BackColor = System.Drawing.Color.Transparent;
             this.BtnVerbs.Image = ((System.Drawing.Image)(resources.GetObject("BtnVerbs.Image")));
-            this.BtnVerbs.Location = new System.Drawing.Point(63, 12);
+            this.BtnVerbs.Location = new System.Drawing.Point(42, 105);
             this.BtnVerbs.Name = "BtnVerbs";
             this.BtnVerbs.Size = new System.Drawing.Size(191, 198);
             this.BtnVerbs.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -52,20 +52,23 @@
             // 
             // exit
             // 
-            this.exit.Font = new System.Drawing.Font("Open Sans", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exit.Location = new System.Drawing.Point(700, 382);
+            this.exit.BackColor = System.Drawing.Color.ForestGreen;
+            this.exit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.exit.Font = new System.Drawing.Font("Stencil", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.exit.Location = new System.Drawing.Point(700, 392);
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(90, 42);
             this.exit.TabIndex = 2;
             this.exit.Text = "Exit";
-            this.exit.UseVisualStyleBackColor = true;
+            this.exit.UseVisualStyleBackColor = false;
             this.exit.Click += new System.EventHandler(this.exit_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(527, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(560, 105);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(191, 198);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -75,8 +78,9 @@
             // Config
             // 
             this.Config.BackColor = System.Drawing.Color.Transparent;
+            this.Config.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Config.Image = ((System.Drawing.Image)(resources.GetObject("Config.Image")));
-            this.Config.Location = new System.Drawing.Point(12, 353);
+            this.Config.Location = new System.Drawing.Point(12, 345);
             this.Config.Name = "Config";
             this.Config.Size = new System.Drawing.Size(95, 89);
             this.Config.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -90,6 +94,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(802, 436);
             this.Controls.Add(this.Config);
             this.Controls.Add(this.pictureBox1);

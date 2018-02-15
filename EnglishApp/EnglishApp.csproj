@@ -65,6 +65,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="querysVerbs.cs" />
+    <Compile Include="VerbsUsercs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerbsUsercs.Designer.cs">
+      <DependentUpon>VerbsUsercs.cs</DependentUpon>
+    </Compile>
     <Compile Include="verbsWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="VerbsUsercs.resx">
+      <DependentUpon>VerbsUsercs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="verbsWindow.resx">
       <DependentUpon>verbsWindow.cs</DependentUpon>
     </EmbeddedResource>
