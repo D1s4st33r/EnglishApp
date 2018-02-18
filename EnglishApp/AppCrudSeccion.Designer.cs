@@ -41,6 +41,7 @@
             this.Irregular = new System.Windows.Forms.RadioButton();
             this.etiquetaInfinitive = new System.Windows.Forms.Label();
             this.verbBox = new System.Windows.Forms.GroupBox();
+            this.button_clear = new System.Windows.Forms.Button();
             this.addImageButton = new System.Windows.Forms.Button();
             this.imageVerb = new System.Windows.Forms.PictureBox();
             this.inputGerund = new System.Windows.Forms.TextBox();
@@ -65,7 +66,6 @@
             this.btnReturn = new System.Windows.Forms.PictureBox();
             this.update = new System.Windows.Forms.Button();
             this.delete = new System.Windows.Forms.Button();
-            this.button_clear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ListaVerbosDataView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.verbBox.SuspendLayout();
@@ -113,7 +113,7 @@
             this.ListaVerbosDataView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.ListaVerbosDataView.Size = new System.Drawing.Size(751, 194);
             this.ListaVerbosDataView.TabIndex = 5;
-            this.ListaVerbosDataView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListaVerbosDataView_CellClick);
+            this.ListaVerbosDataView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListaVerbosDataView_CellClick);
             // 
             // inputSearchVerb
             // 
@@ -219,6 +219,18 @@
             this.verbBox.TabIndex = 13;
             this.verbBox.TabStop = false;
             this.verbBox.Text = "Verb Description";
+            // 
+            // button_clear
+            // 
+            this.button_clear.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_clear.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button_clear.Location = new System.Drawing.Point(706, 183);
+            this.button_clear.Name = "button_clear";
+            this.button_clear.Size = new System.Drawing.Size(75, 23);
+            this.button_clear.TabIndex = 32;
+            this.button_clear.Text = "Clear";
+            this.button_clear.UseVisualStyleBackColor = true;
+            this.button_clear.Click += new System.EventHandler(this.recargar);
             // 
             // addImageButton
             // 
@@ -456,7 +468,7 @@
             this.update.Cursor = System.Windows.Forms.Cursors.Hand;
             this.update.Enabled = false;
             this.update.Image = ((System.Drawing.Image)(resources.GetObject("update.Image")));
-            this.update.Location = new System.Drawing.Point(416, 565);
+            this.update.Location = new System.Drawing.Point(407, 565);
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(87, 78);
             this.update.TabIndex = 14;
@@ -469,24 +481,12 @@
             this.delete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.delete.Enabled = false;
             this.delete.Image = ((System.Drawing.Image)(resources.GetObject("delete.Image")));
-            this.delete.Location = new System.Drawing.Point(222, 565);
+            this.delete.Location = new System.Drawing.Point(197, 565);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(97, 78);
             this.delete.TabIndex = 13;
             this.delete.UseVisualStyleBackColor = false;
             this.delete.Click += new System.EventHandler(this.delete_Click);
-            // 
-            // button_clear
-            // 
-            this.button_clear.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_clear.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button_clear.Location = new System.Drawing.Point(706, 183);
-            this.button_clear.Name = "button_clear";
-            this.button_clear.Size = new System.Drawing.Size(75, 23);
-            this.button_clear.TabIndex = 32;
-            this.button_clear.Text = "Clear";
-            this.button_clear.UseVisualStyleBackColor = true;
-            this.button_clear.Click += new System.EventHandler(this.recargar);
             // 
             // ConfigurationsVerbs
             // 

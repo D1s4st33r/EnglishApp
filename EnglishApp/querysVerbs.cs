@@ -139,6 +139,16 @@ namespace EnglishApp
             return respuesta;
         }
 
+        //METODO PARA CONTEO DE DATOS
+        public static int searchCount()
+        {
+            string query = string.Format("SELECT count(infinitive) from verbs;");
+            MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexionBD());
+            int respuesta = 0;
+            respuesta = (Convert.ToInt32(comando.ExecuteScalar()));
+            return respuesta;
+        }
+
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 

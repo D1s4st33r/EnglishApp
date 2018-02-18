@@ -21,3 +21,4 @@ C:\Users\maste\Desktop\EnglishApp\EnglishApp\obj\Debug\EnglishApp.EnApp.resource
 C:\Users\maste\Desktop\EnglishApp\EnglishApp\obj\Debug\EnglishApp.Properties.Resources.resources
 C:\Users\maste\Desktop\EnglishApp\EnglishApp\obj\Debug\EnglishApp.verbsWindow.resources
 C:\Users\maste\Desktop\EnglishApp\EnglishApp\obj\Debug\EnglishApp.csproj.GenerateResource.Cache
+C:\Users\maste\Desktop\EnglishApp\EnglishApp\obj\Debug\EnglishApp.VerbsUsercs.resources

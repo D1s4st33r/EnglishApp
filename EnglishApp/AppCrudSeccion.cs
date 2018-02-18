@@ -181,14 +181,13 @@ namespace EnglishApp
                     querysVerbs.updateVerbs(infinitive.ToUpper(), past.ToUpper(), participle.ToUpper(), spanish.ToUpper(), pronun.ToUpper(), type, idPersistente,gerund.ToUpper());
                     querysVerbs.updateExamples(sentencePresent.ToUpper(), sentencePast.ToUpper(), senteceParticipe.ToUpper(), type, idPersistente);
                     
-                    System.IO.File.Copy(pathPrimary, pathFinal, true);
                     querysVerbs.updatePicture(pathFinal, idPersistente);
                     try
-                    {
-                        
+                    {       
                         System.IO.File.Delete(imageAnt.Rows[0][0].ToString());
                     }
                     catch (System.IO.IOException a) { MessageBox.Show(a.ToString()); }
+                    System.IO.File.Copy(pathPrimary, pathFinal, true);
                 }
             } else { Alert.Text = "COMPLETE ALL FIELDS"; }
         }
@@ -197,57 +196,65 @@ namespace EnglishApp
 
         private void ListaVerbosDataView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            delete.Enabled = true;
-            update.Enabled = true;
-            add.Enabled = false;
-            DataTable image=new DataTable();
-            string[] datos = new string[8];
-            DataTable dt = new DataTable();
-            for (int i = 0; i < 8; i++)
+            if (querysVerbs.searchCount() > 0)
             {
-                datos[i] = ListaVerbosDataView.SelectedCells[i].EditedFormattedValue.ToString();
-            }
-            idPersistente = int.Parse(datos[0]);
-            dt = querysVerbs.searchExamples(datos[0]);
-            image = querysVerbs.searchPicture(datos[0]);
-            inputInfinitive.Text = datos[1];
-            inputPast.Text = datos[2];
-            inputParticiple.Text = datos[4];
-            inputGerund.Text = datos[5];
-            inputSpanish.Text = datos[6];
-            pronunciation.Text = datos[3];
-            string tipo = datos[7];
-            if (tipo == "REGULAR") { Regular.Checked = true; } else { Irregular.Checked = true; }
-            inputPresentTense.Text = dt.Rows[0][1].ToString();
-            inputPastTense.Text = dt.Rows[0][2].ToString();
-            inputParticipleTense.Text = dt.Rows[0][3].ToString();
+                delete.Enabled = true;
+                update.Enabled = true;
+                add.Enabled = false;
+                DataTable image = new DataTable();
+                string[] datos = new string[8];
+                DataTable dt = new DataTable();
+                for (int i = 0; i < 8; i++)
+                {
+                    datos[i] = ListaVerbosDataView.SelectedCells[i].EditedFormattedValue.ToString();
+                }
+                idPersistente = int.Parse(datos[0]);
+                dt = querysVerbs.searchExamples(datos[0]);
+                image = querysVerbs.searchPicture(datos[0]);
+                inputInfinitive.Text = datos[1];
+                inputPast.Text = datos[2];
+                inputParticiple.Text = datos[4];
+                inputGerund.Text = datos[5];
+                inputSpanish.Text = datos[6];
+                pronunciation.Text = datos[3];
+                string tipo = datos[7];
+                if (tipo == "REGULAR") { Regular.Checked = true; } else { Irregular.Checked = true; }
+                inputPresentTense.Text = dt.Rows[0][1].ToString();
+                inputPastTense.Text = dt.Rows[0][2].ToString();
+                inputParticipleTense.Text = dt.Rows[0][3].ToString();
 
-            using (var stream = File.Open(image.Rows[0][0].ToString(), FileMode.Open))
-            {
-                imageVerb.Image = Image.FromStream(stream);
+                using (var stream = File.Open(image.Rows[0][0].ToString(), FileMode.Open))
+                {
+                    imageVerb.Image = Image.FromStream(stream);
+                }
             }
          
         }
 
         private void addImageButton_Click(object sender, EventArgs e)
         {
-            
-            OpenFileDialog examinar = new OpenFileDialog();
-            examinar.Filter = "image files|*.jpg;*.png;*.gif;*.ico;.*;";
-            DialogResult dres1 = examinar.ShowDialog();
-            if (dres1 == DialogResult.Abort)
-                return;
-            if (dres1 == DialogResult.Cancel)
-                return;
-            pathPrimary= examinar.FileName;
-            string nameImage = System.IO.Path.GetFileName(pathPrimary);           
-            pathFinal = System.IO.Path.Combine(pathDestiny, nameImage);
-
-            using (var stream = File.Open(pathPrimary, FileMode.Open))
+            if (inputInfinitive.Text != "")
             {
-                imageVerb.Image = Image.FromStream(stream);
-                stream.Close();
-            }
+                OpenFileDialog examinar = new OpenFileDialog();
+                examinar.Filter = "image files|*.jpg;*.png;*.gif;*.ico;.*;";
+                DialogResult dres1 = examinar.ShowDialog();
+                if (dres1 == DialogResult.Abort)
+                    return;
+                if (dres1 == DialogResult.Cancel)
+                    return;
+                pathPrimary = examinar.FileName;
+                string nameImageAnt = System.IO.Path.GetFileName(pathPrimary);
+                int starIndex = nameImageAnt.IndexOf(".");
+                int endIndex = nameImageAnt.Length;
+                string extension = nameImageAnt.Substring(starIndex, endIndex - starIndex);
+                string nameImage = inputInfinitive.Text.ToUpper() + extension;
+                pathFinal = System.IO.Path.Combine(pathDestiny, nameImage);
+                using (var stream = File.Open(pathPrimary, FileMode.Open))
+                {
+                    imageVerb.Image = Image.FromStream(stream);
+                    stream.Close();
+                }
+            } else { Alert.Text = "Ingrese el verbo en infinitivo antes de agregar una imagen"; }
         }
     }
 }
