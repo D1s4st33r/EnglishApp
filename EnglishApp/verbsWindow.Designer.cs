@@ -45,6 +45,7 @@
             this.btnRegulars.TabIndex = 0;
             this.btnRegulars.Text = "Regulars Verbs";
             this.btnRegulars.UseVisualStyleBackColor = false;
+            this.btnRegulars.Click += new System.EventHandler(this.btnRegulars_Click);
             // 
             // btnIrregulars
             // 
@@ -57,6 +58,7 @@
             this.btnIrregulars.TabIndex = 1;
             this.btnIrregulars.Text = "Irregulars Verbs";
             this.btnIrregulars.UseVisualStyleBackColor = false;
+            this.btnIrregulars.Click += new System.EventHandler(this.btnIrregulars_Click);
             // 
             // Return
             // 

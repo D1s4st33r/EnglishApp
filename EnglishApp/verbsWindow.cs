@@ -23,5 +23,19 @@ namespace EnglishApp
             this.Hide();
             Enapp.Show();
         }
+
+        private void btnRegulars_Click(object sender, EventArgs e)
+        {
+            VerbsUsercs verbs = new VerbsUsercs("REGULAR");
+            this.Hide();
+            verbs.Show();
+        }
+
+        private void btnIrregulars_Click(object sender, EventArgs e)
+        {
+            VerbsUsercs verbs = new VerbsUsercs("IRREGULAR");
+            this.Hide();
+            verbs.Show();
+        }
     }
 }

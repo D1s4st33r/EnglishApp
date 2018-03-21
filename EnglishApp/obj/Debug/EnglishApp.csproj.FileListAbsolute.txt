@@ -22,3 +22,20 @@ C:\Users\maste\Desktop\EnglishApp\EnglishApp\obj\Debug\EnglishApp.Properties.Res
 C:\Users\maste\Desktop\EnglishApp\EnglishApp\obj\Debug\EnglishApp.verbsWindow.resources
 C:\Users\maste\Desktop\EnglishApp\EnglishApp\obj\Debug\EnglishApp.csproj.GenerateResource.Cache
 C:\Users\maste\Desktop\EnglishApp\EnglishApp\obj\Debug\EnglishApp.VerbsUsercs.resources
+C:\Users\Administrador.ELENA\documents\visual studio 2015\EnglishApp\EnglishApp\obj\Debug\EnglishApp.VerbsUsercs.resources
+C:\Users\Administrador.ELENA\documents\visual studio 2015\EnglishApp\EnglishApp\obj\Debug\EnglishApp.PanelJuegos.resources
+C:\Users\Administrador.ELENA\documents\visual studio 2015\EnglishApp\EnglishApp\obj\Debug\EnglishApp.MemoryGame.resources
+C:\Users\maste\Documents\EnglishApp\EnglishApp\bin\Debug\EnglishApp.exe.config
+C:\Users\maste\Documents\EnglishApp\EnglishApp\obj\Debug\EnglishApp.exe
+C:\Users\maste\Documents\EnglishApp\EnglishApp\obj\Debug\EnglishApp.pdb
+C:\Users\maste\Documents\EnglishApp\EnglishApp\bin\Debug\EnglishApp.exe
+C:\Users\maste\Documents\EnglishApp\EnglishApp\bin\Debug\EnglishApp.pdb
+C:\Users\maste\Documents\EnglishApp\EnglishApp\obj\Debug\EnglishApp.csprojResolveAssemblyReference.cache
+C:\Users\maste\Documents\EnglishApp\EnglishApp\obj\Debug\EnglishApp.ConfigurationsVerbs.resources
+C:\Users\maste\Documents\EnglishApp\EnglishApp\obj\Debug\EnglishApp.EnApp.resources
+C:\Users\maste\Documents\EnglishApp\EnglishApp\obj\Debug\EnglishApp.MemoryGame.resources
+C:\Users\maste\Documents\EnglishApp\EnglishApp\obj\Debug\EnglishApp.PanelJuegos.resources
+C:\Users\maste\Documents\EnglishApp\EnglishApp\obj\Debug\EnglishApp.Properties.Resources.resources
+C:\Users\maste\Documents\EnglishApp\EnglishApp\obj\Debug\EnglishApp.VerbsUsercs.resources
+C:\Users\maste\Documents\EnglishApp\EnglishApp\obj\Debug\EnglishApp.verbsWindow.resources
+C:\Users\maste\Documents\EnglishApp\EnglishApp\obj\Debug\EnglishApp.csproj.GenerateResource.Cache

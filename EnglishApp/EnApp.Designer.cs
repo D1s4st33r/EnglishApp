@@ -31,10 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EnApp));
             this.BtnVerbs = new System.Windows.Forms.PictureBox();
             this.exit = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnJuegos = new System.Windows.Forms.PictureBox();
             this.Config = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.BtnVerbs)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnJuegos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Config)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,16 +64,17 @@
             this.exit.UseVisualStyleBackColor = false;
             this.exit.Click += new System.EventHandler(this.exit_Click);
             // 
-            // pictureBox1
+            // btnJuegos
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(560, 105);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(191, 198);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.btnJuegos.BackColor = System.Drawing.Color.Transparent;
+            this.btnJuegos.Image = ((System.Drawing.Image)(resources.GetObject("btnJuegos.Image")));
+            this.btnJuegos.Location = new System.Drawing.Point(560, 105);
+            this.btnJuegos.Name = "btnJuegos";
+            this.btnJuegos.Size = new System.Drawing.Size(191, 198);
+            this.btnJuegos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnJuegos.TabIndex = 3;
+            this.btnJuegos.TabStop = false;
+            this.btnJuegos.Click += new System.EventHandler(this.btnJuegos_Click);
             // 
             // Config
             // 
@@ -97,7 +98,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(802, 436);
             this.Controls.Add(this.Config);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.btnJuegos);
             this.Controls.Add(this.exit);
             this.Controls.Add(this.BtnVerbs);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -106,7 +107,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "English App UPQroo";
             ((System.ComponentModel.ISupportInitialize)(this.BtnVerbs)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnJuegos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Config)).EndInit();
             this.ResumeLayout(false);
 
@@ -116,7 +117,7 @@
 
         private System.Windows.Forms.PictureBox BtnVerbs;
         private System.Windows.Forms.Button exit;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox btnJuegos;
         private System.Windows.Forms.PictureBox Config;
     }
 }

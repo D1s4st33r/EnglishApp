@@ -16,9 +16,9 @@ namespace EnglishApp
     public partial class ConfigurationsVerbs : Form
     {
 
-        string pathDestiny = "C:/Users/maste/Desktop/EnglishApp/image/";
-        string pathFinal, pathPrimary;
-        int idPersistente;
+        string pathDestiny = Directory.GetCurrentDirectory()+"\\image\\";
+        string pathFinal, pathPrimary, extensionImagen;
+        int idPersistente,cen;
 
         public ConfigurationsVerbs()
         {//http://www.mnliteracy.org/sites/default/files
@@ -111,10 +111,10 @@ namespace EnglishApp
                 if (validar == 0)
                 {
                     Alert.Text = "";
-                    querysVerbs.insertVerbs(infinitive.ToUpper(), past.ToUpper(), participle.ToUpper(), spanish.ToUpper(), pronun.ToUpper(), type,gerund.ToUpper());
+                    querysVerbs.insertVerbs(infinitive.ToUpper(), past.ToUpper(), participle.ToUpper(), spanish.ToUpper(), pronun.ToUpper(), type,gerund.ToUpper(), infinitive.ToUpper() + extensionImagen);
                     querysVerbs.insertExample(sentencePresent.ToUpper(), sentencePast.ToUpper(), senteceParticipe.ToUpper(), type);
                     System.IO.File.Copy(pathPrimary, pathFinal, true);
-                    querysVerbs.insertPicture(pathFinal);
+                   // querysVerbs.insertPicture);
                     this.limpiar();
                 } else { Alert.Text = "THIS VERB IS ALREADY IN THE DATA BASE"; }
             }
@@ -172,7 +172,7 @@ namespace EnglishApp
             string type = Regular.Checked ? "REGULAR" : "IRREGULAR";
             string gerund = inputGerund.Text;
             if (infinitive != "" && past != "" && participle != "" && spanish
-                != "" && pronun != "" && sentencePresent != "" && sentencePast != "" && senteceParticipe != "" && gerund!="" && pathFinal != null)
+                != "" && pronun != "" && sentencePresent != "" && sentencePast != "" && senteceParticipe != "" && gerund!="")
             {
                 DialogResult result = MessageBox.Show("IS ABOUT TO MAKE CHANGES TO THE VERB\n DO YOU WANT TO CONTINUE?", "Confirmation", MessageBoxButtons.YesNoCancel);
                 if (result == DialogResult.Yes)
@@ -180,14 +180,25 @@ namespace EnglishApp
                 
                     querysVerbs.updateVerbs(infinitive.ToUpper(), past.ToUpper(), participle.ToUpper(), spanish.ToUpper(), pronun.ToUpper(), type, idPersistente,gerund.ToUpper());
                     querysVerbs.updateExamples(sentencePresent.ToUpper(), sentencePast.ToUpper(), senteceParticipe.ToUpper(), type, idPersistente);
-                    
+
+                    string nameImageAnt = System.IO.Path.GetFileName(pathPrimary);
+                    int starIndex = nameImageAnt.IndexOf(".");
+                    int endIndex = nameImageAnt.Length;
+                    string extension = nameImageAnt.Substring(starIndex, endIndex - starIndex);
+                    string nameImage = infinitive.ToUpper() + extension;
+                    pathFinal = System.IO.Path.Combine(pathDestiny, nameImage);
                     querysVerbs.updatePicture(pathFinal, idPersistente);
-                    try
-                    {       
-                        System.IO.File.Delete(imageAnt.Rows[0][0].ToString());
+                    if (cen == 0)
+                    {
+                        try
+                        {
+                            System.IO.File.Delete(imageAnt.Rows[0][0].ToString());
+                        }
+                        catch (System.IO.IOException a) { MessageBox.Show(a.ToString()); }
+                        System.IO.File.Copy(pathPrimary, pathFinal, true);
                     }
-                    catch (System.IO.IOException a) { MessageBox.Show(a.ToString()); }
-                    System.IO.File.Copy(pathPrimary, pathFinal, true);
+                    else { System.IO.File.Move(pathPrimary, pathFinal); }
+
                 }
             } else { Alert.Text = "COMPLETE ALL FIELDS"; }
         }
@@ -202,15 +213,15 @@ namespace EnglishApp
                 update.Enabled = true;
                 add.Enabled = false;
                 DataTable image = new DataTable();
-                string[] datos = new string[8];
+                string[] datos = new string[9];
                 DataTable dt = new DataTable();
-                for (int i = 0; i < 8; i++)
+                for (int i = 0; i < datos.Length; i++)
                 {
                     datos[i] = ListaVerbosDataView.SelectedCells[i].EditedFormattedValue.ToString();
                 }
                 idPersistente = int.Parse(datos[0]);
                 dt = querysVerbs.searchExamples(datos[0]);
-                image = querysVerbs.searchPicture(datos[0]);
+                //image = querysVerbs.searchPicture(datos[0]);
                 inputInfinitive.Text = datos[1];
                 inputPast.Text = datos[2];
                 inputParticiple.Text = datos[4];
@@ -222,10 +233,13 @@ namespace EnglishApp
                 inputPresentTense.Text = dt.Rows[0][1].ToString();
                 inputPastTense.Text = dt.Rows[0][2].ToString();
                 inputParticipleTense.Text = dt.Rows[0][3].ToString();
-
-                using (var stream = File.Open(image.Rows[0][0].ToString(), FileMode.Open))
+                //pathPrimary = image.Rows[0][0].ToString();
+                cen = 1;
+                MessageBox.Show(pathDestiny + datos[8]);
+                using (var stream = File.Open(pathDestiny+ datos[8], FileMode.Open))
                 {
                     imageVerb.Image = Image.FromStream(stream);
+                    stream.Close();
                 }
             }
          
@@ -247,8 +261,10 @@ namespace EnglishApp
                 int starIndex = nameImageAnt.IndexOf(".");
                 int endIndex = nameImageAnt.Length;
                 string extension = nameImageAnt.Substring(starIndex, endIndex - starIndex);
+                extensionImagen = extension;
                 string nameImage = inputInfinitive.Text.ToUpper() + extension;
                 pathFinal = System.IO.Path.Combine(pathDestiny, nameImage);
+                cen = 0;
                 using (var stream = File.Open(pathPrimary, FileMode.Open))
                 {
                     imageVerb.Image = Image.FromStream(stream);

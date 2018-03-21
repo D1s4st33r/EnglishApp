@@ -16,7 +16,7 @@ namespace EnglishApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new EnApp());
+           Application.Run(new EnApp());
         }
     }
 }

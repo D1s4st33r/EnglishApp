@@ -62,8 +62,21 @@
     <Compile Include="EnApp.Designer.cs">
       <DependentUpon>EnApp.cs</DependentUpon>
     </Compile>
+    <Compile Include="MemoryGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MemoryGame.Designer.cs">
+      <DependentUpon>MemoryGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanelJuegos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PanelJuegos.Designer.cs">
+      <DependentUpon>PanelJuegos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="queryGames.cs" />
     <Compile Include="querysVerbs.cs" />
     <Compile Include="VerbsUsercs.cs">
       <SubType>Form</SubType>
@@ -82,6 +95,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EnApp.resx">
       <DependentUpon>EnApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MemoryGame.resx">
+      <DependentUpon>MemoryGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelJuegos.resx">
+      <DependentUpon>PanelJuegos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

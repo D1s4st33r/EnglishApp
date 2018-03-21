@@ -16,9 +16,9 @@ namespace EnglishApp
 
 
         //METODO PARA INSERTAR NUEVOS VERBOS
-        public static void insertVerbs(string infinitive, string past, string participle, string spanish, string pronunciation, string type,string gerund)
+        public static void insertVerbs(string infinitive, string past, string participle, string spanish, string pronunciation, string type,string gerund,string image)
         {
-            string query = string.Format("INSERT INTO verbs(infinitive,past,pronunciation,pastParticiple,gerund,spanish,type) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}');", infinitive, past, pronunciation, participle, gerund, spanish, type);
+            string query = string.Format("INSERT INTO verbs(infinitive,past,pronunciation,pastParticiple,gerund,spanish,type,imagen) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}');", infinitive, past, pronunciation, participle, gerund, spanish, type,image);
 
             MySqlCommand comand = new MySqlCommand(query, ConexionBD.conexionBD());
             try
@@ -93,6 +93,47 @@ namespace EnglishApp
             MySqlConnection conexion = new MySqlConnection();
             conexion = ConexionBD.conexionBD();
             string query = string.Format("SELECT * FROM verbs WHERE infinitive LIKE ('%" + dato + "%');");
+            MySqlDataAdapter da = new MySqlDataAdapter(query, conexion);
+            conexion.Close();
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
+
+        //METODO PARA BUSCAR VERBOS EN FORMA BASE
+        public static DataTable Infinitive(string dato)
+        {
+            MySqlConnection conexion = new MySqlConnection();
+            conexion = ConexionBD.conexionBD();
+            string query = string.Format("SELECT infinitive FROM verbs WHERE type = '"+dato +"';");
+            MySqlDataAdapter da = new MySqlDataAdapter(query, conexion);
+            conexion.Close();
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
+
+        //METODO PARA BUSCAR VERBOS EN FORMA BASE
+        public static DataTable searchInf(string dato, string type)
+        {
+            MySqlConnection conexion = new MySqlConnection();
+            conexion = ConexionBD.conexionBD();
+            string query = string.Format("SELECT * FROM verbs WHERE infinitive LIKE ('%" + dato + "%') AND type = '"+type+"'");
+            MySqlDataAdapter da = new MySqlDataAdapter(query, conexion);
+            conexion.Close();
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
+        //METODO PARA BUSCAR VERBOS EN FORMA BASE
+        public static DataTable verb(string dato)
+        {
+            MySqlConnection conexion = new MySqlConnection();
+            conexion = ConexionBD.conexionBD();
+            string query = string.Format("SELECT * FROM verbs WHERE infinitive = '{0}';", dato);
             MySqlDataAdapter da = new MySqlDataAdapter(query, conexion);
             conexion.Close();
             DataTable dt = new DataTable();

@@ -35,5 +35,12 @@ namespace EnglishApp
             crud.Show();
             this.Hide();
         }
+
+        private void btnJuegos_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MemoryGame panelPlay = new MemoryGame(1);
+            panelPlay.Show();
+        }
     }
 }
